@@ -64,6 +64,17 @@ export class SideBarComponent implements OnInit {
           name: 'Mi lista º4',
           router: ['/']
         }
-      ]  
+      ]        
    }
+
+   goTo($event: any): void {
+    this.router.navigate(['/', 'favorites'], {
+      queryParams: {
+        key1: 'value1',
+        key2: 'value2',
+        key3: 'value3'
+      }
+    })
+    console.log($event)
+   } 
 }
