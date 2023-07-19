@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { SharedModule } from '@shared/shared.module';
 import { FavoritesRoutingModule } from './favorites-routing.module';
 import { FavoritePageComponent } from './pages/favorite-page/favorite-page.component';
 
@@ -11,7 +11,8 @@ import { FavoritePageComponent } from './pages/favorite-page/favorite-page.compo
   ],
   imports: [
     CommonModule,
-    FavoritesRoutingModule
+    FavoritesRoutingModule,
+    SharedModule
   ]
 })
 export class FavoritesModule { }
