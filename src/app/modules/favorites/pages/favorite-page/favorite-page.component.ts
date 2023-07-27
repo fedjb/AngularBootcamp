@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorite-page.component.css']
 })
 export class FavoritePageComponent {
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }
