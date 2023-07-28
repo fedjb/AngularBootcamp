@@ -1,6 +1,7 @@
 import { TrackModel } from './../../core/models/tracks.model';
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Observer, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -99,7 +100,7 @@ export class MultimediaService {
 
   public setAudio(track: TrackModel): void {
     console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track);
-    this.audio.src = track.url
+    this.audio.src =  "http://localhost:3000"+track.url    
     this.audio.play()
   }
 
