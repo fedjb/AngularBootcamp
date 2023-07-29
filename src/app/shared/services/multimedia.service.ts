@@ -100,7 +100,7 @@ export class MultimediaService {
 
   public setAudio(track: TrackModel): void {
     console.log('🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍🐱‍🏍', track);
-    this.audio.src =  "http://localhost:3000"+track.url    
+    this.audio.src =  track.url    
     this.audio.play()
   }
 

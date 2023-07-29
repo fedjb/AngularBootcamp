@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { map, mergeMap, tap, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { UrlHandlingStrategy } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,10 +32,10 @@ export class TrackService {
    * 
    * @returns 
    */
-  getAllTracks$(): Observable<any> {
+  getAllTracks$(): Observable<any> {         
     return this.http.get(`${this.URL}/tracks`)
       .pipe(
-        map(({ data }: any) => {
+        map(({ data }: any) => {          
           return data
         })
       )

@@ -17,22 +17,32 @@ export class SideBarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    
     this.mainMenu.defaultOptions = [
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/', 'tracks']
+        router: ['/', 'tracks'],
+        visible: true
       },
       {
         name: 'Buscar',
         icon: 'uil uil-search',
-        router: ['/', 'history']
+        router: ['/', 'history'],
+        visible: true
       },
       {
         name: 'Tu biblioteca',
         icon: 'uil uil-chart',
         router: ['/', 'favorites'],
-        query: { hola: 'mundo' }
+        query: { hola: 'mundo' },
+        visible: true
+      },      
+      {
+        name: 'Administracion',
+        icon: 'uil-cog',
+        router: ['/', 'administracion'],
+        visible: false
       }
     ]
 
@@ -46,6 +56,7 @@ export class SideBarComponent implements OnInit {
         icon: 'uil-heart-medical'
       }
     ]
+
 
     this.customOptions = [
       {
@@ -78,4 +89,6 @@ export class SideBarComponent implements OnInit {
     })
     console.log($event)
   }
+
+  
 }
