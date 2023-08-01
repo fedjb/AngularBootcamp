@@ -21,9 +21,10 @@ export class TracksPageComponent implements OnInit, OnDestroy {
     this.loadDataRandom() //TODO 📌📌
   }
 
-  async loadDataAll(): Promise<any> {
-    this.tracksTrending = await this.trackService.getAllTracks$().toPromise()
-
+   loadDataAll() {
+    this.trackService.getAllTracks$().subscribe((tracks:any)=> {
+      this.tracksTrending = tracks;
+    })
   }
 
   loadDataRandom(): void {

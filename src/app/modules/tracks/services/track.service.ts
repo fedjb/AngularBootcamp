@@ -33,9 +33,10 @@ export class TrackService {
    * @returns 
    */
   getAllTracks$(): Observable<any> {         
+    
     return this.http.get(`${this.URL}/tracks`)
       .pipe(
-        map(({ data }: any) => {          
+        map(({ data }: any) => {                              
           return data
         })
       )
@@ -47,6 +48,7 @@ export class TrackService {
    * @returns Devolver canciones random
    */
   getAllRandom$(): Observable<any> {
+    
     return this.http.get(`${this.URL}/tracks`)
       .pipe(
         mergeMap(({ data }: any) => this.skipById(data, 2)),

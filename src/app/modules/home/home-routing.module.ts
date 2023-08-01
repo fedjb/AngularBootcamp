@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AdministrationModule } from '@modules/administration/administration.module';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'history',
     loadChildren: () => import('@modules/history/history.module').then(m => m.HistoryModule)
+  },
+  {
+    path: 'administration',
+    loadChildren: () => import('@modules/administration/administration.module').then(m => m.AdministrationModule)
   },
   {
     path: '**',//TODO 404 cuando no existe la ruta

@@ -17,7 +17,6 @@ export class SideBarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    
     this.mainMenu.defaultOptions = [
       {
         name: 'Home',
@@ -41,8 +40,8 @@ export class SideBarComponent implements OnInit {
       {
         name: 'Administracion',
         icon: 'uil-cog',
-        router: ['/', 'administracion'],
-        visible: false
+        router: ['/', 'administration'],
+        visible: true
       }
     ]
 
@@ -89,6 +88,4 @@ export class SideBarComponent implements OnInit {
     })
     console.log($event)
   }
-
-  
 }
