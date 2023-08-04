@@ -1,8 +1,31 @@
+
+<!--
 <h1>Agregar cancion</h1>
+<table>
+    <tr>        
+        <td>Cancion</td>           
+        <td>Album</td>
+        <td>Cover</td>
+        <td>Artista</td>
+        <td>Id</td>
+    </tr>
+    <tr>
+        <td><app-search (callbackData)="receiveData($event)"></app-search></td>
+        <td><input type="text" class="search-component" placeholder="Cancion"></td>
+        <td><input type="text" class="search-component" placeholder="Album"></td>
+        <td><input type="text" class="search-component" placeholder="Cover"></td>
+        <td><input type="text" class="search-component" placeholder="Artista"></td>
+        <td><input type="text" class="search-component" placeholder="Id"></td>
+    </tr>                
+</table>
+<br>
+<button class="button">Agregar</button> 
+-->
+
 <h1>Borrar y editar canciones</h1>
 <div>
     <!--<app-search (callbackData)="receiveData($event)"></app-search>-->
     <!--<app-play-list-body [tracks]="listResults$ | async"></app-play-list-body>-->
-    <app-play-list-body></app-play-list-body>
+    <app-play-list-body [tracks]="tracksTrending"></app-play-list-body>
 </div>
 

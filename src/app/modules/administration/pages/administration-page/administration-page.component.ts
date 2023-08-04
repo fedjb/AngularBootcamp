@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { SearchService } from '@modules/history/services/search.service';
-import { SearchComponent } from '../../../../modules/history/components/search/search.component';
+import { HttpClient } from '@angular/common/http';
+import { TrackService } from '@modules/administration/services/services.service';
+import { TrackModel } from '@core/models/tracks.model';
 
 @Component({
   selector: 'app-administration-page',
@@ -9,14 +11,18 @@ import { SearchComponent } from '../../../../modules/history/components/search/s
   styleUrls: ['./administration-page.component.css']
 })
 export class AdministrationPageComponent {  
-  listResults$: Observable<any> = of([])
-  constructor(private searchService: SearchService) { }
 
+  constructor(private trackService: TrackService) { }  
+  tracksTrending: Array<TrackModel> = []
+ 
   ngOnInit(): void {
+    this.loadDataAll()
   }  
-  receiveData(event: string): void {
-    //TODO: agarras el termino y sabes que solo se ejecuta cunado tiene 3 caracters
-    console.log('🎁 Estoy en el padre jua jua...', event);
-    this.listResults$ = this.searchService.searchTracks$(event)
-  }    
+
+  loadDataAll() {    
+     this.trackService.getAllTracks$().subscribe((tracks:any)=> {
+      this.tracksTrending = tracks;
+     })
+  }
+  
 }
