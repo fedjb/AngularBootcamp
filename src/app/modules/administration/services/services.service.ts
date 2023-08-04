@@ -24,4 +24,16 @@ export class TrackService {
       )
   }
 
+  editTrack$(): Observable<any> {   
+    const body = {
+      "name":"holis"
+    }
+    return this.http.put(`${this.URL}/tracks/edit`,body)
+      .pipe(
+        map(({ data }: any) => {                              
+          return data
+        })
+      )
+  }
+
 }

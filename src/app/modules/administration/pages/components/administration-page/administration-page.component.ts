@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { SearchService } from '@modules/history/services/search.service';
 import { HttpClient } from '@angular/common/http';
@@ -10,8 +10,8 @@ import { TrackModel } from '@core/models/tracks.model';
   templateUrl: './administration-page.component.html',
   styleUrls: ['./administration-page.component.css']
 })
-export class AdministrationPageComponent {  
-
+export class AdministrationPageComponent {    
+  optionSort: { property: string | null, order: string } = { property: null, order: 'asc' }
   constructor(private trackService: TrackService) { }  
   tracksTrending: Array<TrackModel> = []
  
@@ -19,10 +19,9 @@ export class AdministrationPageComponent {
     this.loadDataAll()
   }  
 
-  loadDataAll() {    
-     this.trackService.getAllTracks$().subscribe((tracks:any)=> {
+  loadDataAll() {          
+      this.trackService.getAllTracks$().subscribe((tracks:any)=> {
       this.tracksTrending = tracks;
      })
-  }
-  
+  }  
 }
